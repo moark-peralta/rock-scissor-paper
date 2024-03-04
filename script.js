@@ -2,7 +2,7 @@
 
 // Computer Choice function
 
-function getComputerChoice() {
+const computerSelection = function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
 
   switch (randomNumber) {
@@ -13,4 +13,18 @@ function getComputerChoice() {
     case 2:
       return "scissors";
   }
+};
+
+function getPlayerSelection() {
+  const playerSelection = prompt(
+    "Choose between: Rock, Paper or Scissors"
+  ).toLocaleLowerCase();
+  const choices = ["rock", "paper", "scissors"];
+  if (!choices.includes(playerSelection)) {
+    alert("Invalid Choice! Please choose between Rock, Paper and scissors");
+    return getPlayerSelection();
+  }
+  return playerSelection;
 }
+
+console.log(getPlayerSelection());
