@@ -1,6 +1,5 @@
 const computerSelection = getComputerChoice();
-// const playerSelection = getPlayerChoice();
-const playerSelection = "rock";
+const playerSelection = getPlayerChoice();
 
 // Formatting
 function capitalizeFirstLetter(word) {
@@ -90,11 +89,11 @@ function playGame() {
   }
 
   if (playerScore > computerScore) {
-    console.log("Player wins the game!");
+    console.log(`Player wins the game! ${playerScore} vs ${computerScore}`);
   } else if (computerScore > playerScore) {
-    console.log("Computer wins the game!");
+    console.log(`Computer wins the game! ${computerScore} vs ${playerScore}`);
   } else {
-    console.log("It's a draw game!");
+    console.log(`It's a draw game! ${playerScore} vs ${computerScore}`);
   }
 }
 
