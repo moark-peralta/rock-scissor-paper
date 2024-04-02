@@ -1,14 +1,15 @@
-"use strict";
 const playerBtn = document.querySelector(".rsp-btn");
 const btnContainer = document.querySelectorAll(".btn-cont");
 const btnNewGame = document.querySelector(".new-btn");
 const scoreElement = document.querySelectorAll(".score");
 const playerScoreEl = document.querySelector("#score--0");
 const computerScoreEl = document.querySelector("#score--1");
-
+const playerWin = document.querySelector(".player");
+const computerWin = document.querySelector(".computer");
 // Get Computer Choice
 function getComputerChoice() {
   const rand = Math.floor(Math.random() * 3) + 1;
+
   switch (rand) {
     case 1:
       return "rock";
@@ -42,7 +43,6 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let scores, playerScore, computerScore;
-
 function init() {
   scores = [0, 0];
   playerScore = 0;
@@ -61,13 +61,13 @@ function updateScore(winner) {
     playerScore++;
     playerScoreEl.textContent = playerScore;
     if (playerScore === 5) {
-      alert("Player wins the game!");
+      playerWin.classList.add("player--winner");
     }
   } else if (winner === "computer") {
     computerScore++;
     computerScoreEl.textContent = computerScore;
     if (computerScore === 5) {
-      alert("Computer wins the game!");
+      computerWin.classList.add("computer--winner");
     }
   }
 }
