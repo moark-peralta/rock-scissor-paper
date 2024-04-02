@@ -1,12 +1,3 @@
-// Formatting
-function capitalizeFirstLetter(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
-// Get Player Choice
-function getPlayerChoice() {
-  const input = prompt(`Pick between Rock, Paper or Scissors`).toLowerCase();
-  return input;
-}
 // Get Computer Choice
 function getComputerChoice() {
   const rand = Math.floor(Math.random() * 3) + 1;
@@ -31,15 +22,13 @@ function getComputerChoice() {
 // Play Round of RSP
 function playRound(playerSelection, computerSelection) {
   // Player Win
-  const capitalizedPlayerSelection = capitalizeFirstLetter(playerSelection);
-  const capitalizedComputerSelection = capitalizeFirstLetter(computerSelection);
   if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
     console.log(
-      `Player: ${capitalizedPlayerSelection} wins against Computer: ${capitalizedComputerSelection}`
+      `Player: ${playerSelection} wins against Computer: ${computerSelection}`
     );
   }
   //Computer Win
@@ -49,7 +38,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "scissors" && computerSelection === "rock")
   ) {
     console.log(
-      `Computer: ${capitalizedComputerSelection} wins against Player: ${capitalizedPlayerSelection}`
+      `Computer: ${computerSelection} wins against Player: ${playerSelection}`
     );
   } else if (playerSelection === computerSelection) {
     console.log(`It's a Draw!`);
@@ -59,7 +48,7 @@ function playRound(playerSelection, computerSelection) {
 //Play Game of RSP
 
 const playerBtn = document.querySelectorAll(".player-btn");
-const btnContainer = document.querySelector(".choice-container");
+const btnContainer = document.querySelector(".btn-cont");
 
 function playGame() {
   let playerScore = 0;
@@ -108,4 +97,4 @@ btnContainer.addEventListener("click", function (e) {
   }
 });
 
-playGame();
+// playGame();
