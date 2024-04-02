@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 2rem;
+  padding: 1.5rem;
+}
+
+.choice-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.player-btn {
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
