@@ -20,9 +20,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    console.log(
-      `Player: ${playerSelection} wins against Computer: ${computerSelection}`
-    );
+    updateScore("player");
   }
   //Computer Win
   else if (
@@ -30,9 +28,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "rock")
   ) {
-    console.log(
-      `Computer: ${computerSelection} wins against Player: ${playerSelection}`
-    );
+    updateScore("computer");
   } else if (playerSelection === computerSelection) {
     console.log(`It's a Draw!`);
   }
@@ -78,6 +74,7 @@ function playRound(playerSelection, computerSelection) {
 // }
 // }
 // playGame();
+
 const playerBtn = document.querySelector(".rsp-btn");
 const btnContainer = document.querySelectorAll(".btn-cont");
 const btnNewGame = document.querySelector(".new-btn");
@@ -91,11 +88,23 @@ function init() {
   playerScore = 0;
   computerScore = 0;
 
-  scoreElement.forEach((element) => (element.textContent = 0));
+  updateScoreDisplay();
 }
 
 init();
 
+function updateScoreDisplay() {
+  playerScoreEl.textContent = playerScore;
+  computerScoreEl.textContent = computerScore;
+}
+
+function updateScore(winner) {
+  if (winner === "player") playerScore++;
+  else if (winner === "computer") {
+    computerScore++;
+  }
+  updateScoreDisplay();
+}
 playerBtn.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
     const playerSelection = e.target.dataset.choice;
