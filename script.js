@@ -54,6 +54,9 @@ function init() {
 function updateScoreDisplay() {
   playerScoreEl.textContent = playerScore;
   computerScoreEl.textContent = computerScore;
+
+  playerWin.classList.remove("player--winner");
+  computerWin.classList.remove("computer--winner");
 }
 
 function updateScore(winner) {
