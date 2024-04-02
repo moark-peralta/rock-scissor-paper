@@ -69,15 +69,25 @@ main {
   text-align: center;
   transition: all 0.75s;
 }
-
 .btn-cont {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
+
+.btn-cont--top {
+  top: 20px;
+}
+
+.btn-cont--bottom {
+  bottom: 20px;
+}
+
 .btn {
   color: #444;
-  background: none;
   border: none;
   font-family: inherit;
   font-size: 1.8rem;
@@ -85,12 +95,27 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
+  margin-bottom: 1.5rem;
 
   background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
+  transition: all 0.2s;
 
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn--new {
+  margin-bottom: 3rem; /* Increase the margin between new game button and other buttons */
+}
+
+.btn:active {
+  transform: translateY(1px); /* Move the button down slightly */
+  box-shadow: none; /* Remove any box-shadow when clicked */
+}
+
+.player--winner {
+  background-color: #2f2f2f;
 }
