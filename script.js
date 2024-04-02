@@ -1,7 +1,14 @@
+"use strict";
+const playerBtn = document.querySelector(".rsp-btn");
+const btnContainer = document.querySelectorAll(".btn-cont");
+const btnNewGame = document.querySelector(".new-btn");
+const scoreElement = document.querySelectorAll(".score");
+const playerScoreEl = document.querySelector("#score--0");
+const computerScoreEl = document.querySelector("#score--1");
+
 // Get Computer Choice
 function getComputerChoice() {
   const rand = Math.floor(Math.random() * 3) + 1;
-
   switch (rand) {
     case 1:
       return "rock";
@@ -34,55 +41,8 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// console.log(btnContainer);
-//Play Game of RSP
-// function playGame() {
-//   let playerScore = 0;
-//   let computerScore = 0;
-
-//   const computerSelection = getComputerChoice();
-//   const playerSelection = getPlayerChoice();
-//   //   for (let i = 0; i < 5; i++) {
-//   //   const playerSelection = prompt(
-//   //     "Enter your choice (rock, paper, or scissors):"
-//   //   ).toLowerCase();
-//   //   const computerSelection = ["rock", "paper", "scissors"][
-//   //     Math.floor(Math.random() * 3)
-//   //   ];
-
-// playRound();
-
-// if (playerSelection === computerSelection) {
-//   console.log("It's a draw for this round!");
-// } else if (
-//   (playerSelection === "rock" && computerSelection === "scissors") ||
-//   (playerSelection === "paper" && computerSelection === "rock") ||
-//   (playerSelection === "scissors" && computerSelection === "paper")
-// ) {
-//   playerScore++;
-// } else {
-//   computerScore++;
-// }
-//   }
-
-// if (playerScore > computerScore) {
-//   console.log(`Player wins the game! ${playerScore} vs ${computerScore}`);
-// } else if (computerScore > playerScore) {
-//   console.log(`Computer wins the game! ${computerScore} vs ${playerScore}`);
-// } else {
-//   console.log(`It's a draw game! ${playerScore} vs ${computerScore}`);
-// }
-// }
-// playGame();
-
-const playerBtn = document.querySelector(".rsp-btn");
-const btnContainer = document.querySelectorAll(".btn-cont");
-const btnNewGame = document.querySelector(".new-btn");
-const scoreElement = document.querySelectorAll(".score");
-const playerScoreEl = document.querySelector("#score--0");
-const computerScoreEl = document.querySelector("#score--1");
-
 let scores, playerScore, computerScore;
+
 function init() {
   scores = [0, 0];
   playerScore = 0;
@@ -91,19 +51,25 @@ function init() {
   updateScoreDisplay();
 }
 
-init();
-
 function updateScoreDisplay() {
   playerScoreEl.textContent = playerScore;
   computerScoreEl.textContent = computerScore;
 }
 
 function updateScore(winner) {
-  if (winner === "player") playerScore++;
-  else if (winner === "computer") {
+  if (winner === "player") {
+    playerScore++;
+    playerScoreEl.textContent = playerScore;
+    if (playerScore === 5) {
+      alert("Player wins the game!");
+    }
+  } else if (winner === "computer") {
     computerScore++;
+    computerScoreEl.textContent = computerScore;
+    if (computerScore === 5) {
+      alert("Computer wins the game!");
+    }
   }
-  updateScoreDisplay();
 }
 playerBtn.addEventListener("click", function (e) {
   if (e.target.matches("button")) {
@@ -113,4 +79,6 @@ playerBtn.addEventListener("click", function (e) {
   }
 });
 
-btnNewGame.addEventListener("clicl", init);
+btnNewGame.addEventListener("click", init);
+
+init();
