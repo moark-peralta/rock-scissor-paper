@@ -23,6 +23,7 @@ function getComputerChoice() {
 // Play Round of RSP
 function playRound(playerSelection, computerSelection) {
   // Player Win
+  if (playerScore === 5 || computerScore === 5) return;
   if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
