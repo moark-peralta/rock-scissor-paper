@@ -108,12 +108,12 @@ main {
 }
 
 .btn--new {
-  margin-bottom: 3rem; /* Increase the margin between new game button and other buttons */
+  margin-bottom: 3rem;
 }
 
 .btn:active {
-  transform: translateY(1px); /* Move the button down slightly */
-  box-shadow: none; /* Remove any box-shadow when clicked */
+  transform: translateY(1px);
+  box-shadow: none;
 }
 
 .player--winner {
